@@ -1,6 +1,6 @@
 import { BasePageObject } from "../base-page-object";
 import { TemplateStringValues } from "../../../interfaces/template-string-values";
-import test, { Locator, Page } from "@playwright/test";
+import test, { Locator } from "@playwright/test";
 import { BaseElementProps } from "../../../interfaces/props/base-element-props";
 import { StringHelper } from "../../../helpers/string-helper";
 

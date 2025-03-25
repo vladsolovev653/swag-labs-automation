@@ -11,8 +11,9 @@ export abstract class BasePage extends BasePageObject {
   public async open(): Promise<void> {
     await test.step(`Открыть страницу "${this.name}"`, async () => {
       await this.page.goto(this.url);
-      await this.shouldBeLoaded();
     });
+
+    await this.shouldBeLoaded();
   }
 
   public async reload(): Promise<void> {
