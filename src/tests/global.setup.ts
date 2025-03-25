@@ -6,7 +6,11 @@ globalSetup('Авторизация администратором', async ({ pa
   const authFile = path.join(__dirname, '../../playwright/.auth/admin.json');
 
   await loginPage.open();
-  await loginPage.login('standard_user', 'secret_sauce');
+
+  const adminUsername = process.env.ADMIN_USERNAME as string;
+  const adminPassword = process.env.ADMIN_PASSWORD as string;
+
+  await loginPage.login(adminUsername, adminPassword);
   await inventoryPage.shouldBeLoaded();
 
   await page.context().storageState({ path: authFile });

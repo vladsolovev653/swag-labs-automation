@@ -11,6 +11,12 @@ export class LoginPage extends BasePage {
   private readonly passwordInput = new Input({ page: this.page, selector: '#password', name: 'Password' });
   private readonly loginBtn = new Input({ page: this.page, selector: '#login-button', name: 'Login' });
 
+  public async shouldBeLoaded(): Promise<void> {
+    await test.step(`Страница "${this.name}" успешно загрузилась`, async () => {
+      await this.waitForURL();
+    });
+  }
+
   public async login(username: string, password: string): Promise<void> {
     await test.step(`Авторизоваться пользователем "${username}"`, async () => {
       await this.usernameInput.fillPrivate(username);
